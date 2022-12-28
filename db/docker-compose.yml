@@ -1,0 +1,18 @@
+version: '3'
+
+networks:
+  database-proxy:
+    driver: bridge
+
+services:
+
+  it-work-form-db:
+    image: 'library/postgres:latest'
+    container_name: it-work-forum-db
+    env_file:
+      - database.env
+    restart: always
+    networks:
+      - database-proxy
+    ports:
+      - 5432:5432
