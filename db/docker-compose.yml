@@ -1,18 +1,18 @@
 version: '3'
 
 networks:
-  database-proxy:
+  authentication-proxy:
     driver: bridge
 
 services:
 
-  it-work-form-db:
+  authentication-template-db:
     image: 'library/postgres:latest'
     container_name: it-work-forum-db
     env_file:
       - database.env
     restart: always
     networks:
-      - database-proxy
+      - authentication-proxy
     ports:
       - 5432:5432

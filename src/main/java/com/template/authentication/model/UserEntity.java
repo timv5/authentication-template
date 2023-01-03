@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-@Builder
 @Entity
 @Table(name = "users")
 public class UserEntity {
@@ -47,6 +46,16 @@ public class UserEntity {
 
     public UserEntity() {}
 
+    public UserEntity(String email, String password, Boolean isActive, Set<RoleEntity> roles, LocalDateTime timeCreated,
+                      LocalDateTime timeUpdated) {
+        this.email = email;
+        this.password = password;
+        this.isActive = isActive;
+        this.roles = roles;
+        this.timeCreated = timeCreated;
+        this.timeUpdated = timeUpdated;
+    }
+
     public UserEntity(Long userId, String email, String password, Boolean isActive, Set<RoleEntity> roles) {
         this.userId = userId;
         this.email = email;
@@ -55,7 +64,8 @@ public class UserEntity {
         this.roles = roles;
     }
 
-    public UserEntity(Long userId, String email, String password, Boolean isActive, Set<RoleEntity> roles, LocalDateTime timeCreated, LocalDateTime timeUpdated) {
+    public UserEntity(Long userId, String email, String password, Boolean isActive, Set<RoleEntity> roles,
+                      LocalDateTime timeCreated, LocalDateTime timeUpdated) {
         this.userId = userId;
         this.email = email;
         this.password = password;

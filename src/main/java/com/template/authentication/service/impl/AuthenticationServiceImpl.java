@@ -97,14 +97,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
             Set<RoleEntity> roles = new HashSet<>();
             roles.add(new RoleEntity(1L, RoleName.ROLE_USER));
-            UserEntity user = UserEntity.builder()
-                    .email(request.getEmail())
-                    .password(passwordEncoder.encode(request.getPassword()))
-                    .isActive(true)
-                    .timeUpdated(LocalDateTime.now())
-                    .timeCreated(LocalDateTime.now())
-                    .roles(roles)
-                    .build();
+            UserEntity user = new UserEntity(request.getEmail(), passwordEncoder.encode(request.getPassword()),
+                    true, roles, LocalDateTime.now(), LocalDateTime.now());
             userService.saveUser(user);
 
             Optional<UserEntity> savedUsed = userService.findUserByEmail(request.getEmail());

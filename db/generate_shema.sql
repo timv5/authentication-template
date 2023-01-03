@@ -19,11 +19,7 @@ create table roles
 create table user_roles
 (
     user_id bigint not null,
-    role_id bigint not null
+    role_id bigint not null,
+    user_time_created date,
+    user_time_updated date
 );
-
-ALTER TABLE users
-    ADD user_time_created date;
-
-ALTER TABLE users
-    ADD user_time_updated date;

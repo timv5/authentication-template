@@ -13,10 +13,15 @@ Springboot application.
 - git checkout
 - go to the root directory
 - run: docker-compose -f docker-compose up -d
+- database will be created inside of docker container
+- run gradle app
 - application will be accessible on: http://localhost:8080
 
 ## Database (Postgres) settings
 - available and configurable in application.properties file
+- after docker container us up run these two scripts:
+  - generate_shema.sql
+  - insert.sql
 
 ## Usage and Endpoints
 All the secured endpoints require Bearer token, which will be accessible in /login 
