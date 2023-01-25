@@ -8,7 +8,7 @@ services:
 
   authentication-template-db:
     image: 'library/postgres:latest'
-    container_name: it-work-forum-db
+    container_name: authentication-template-db
     env_file:
       - database.env
     restart: always
